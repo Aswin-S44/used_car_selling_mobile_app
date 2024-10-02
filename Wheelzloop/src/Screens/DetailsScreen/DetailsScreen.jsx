@@ -36,33 +36,41 @@ const DetailsScreen = ({ route }) => {
         <Image source={{ uri: mainImage }} style={styles.carImage} />
 
         <View style={styles.additionalImagesContainer}>
-          {car.additional_images.map((image, index) => (
+          {car?.additional_images.map((image, index) => (
             <TouchableOpacity key={index} onPress={() => setMainImage(image)}>
               <Image source={{ uri: image }} style={styles.additionalImage} />
             </TouchableOpacity>
           ))}
         </View>
-        <Text style={styles.carName}>{car.car_name}</Text>
-        <Text style={styles.carPrice}>₹{car.price.toLocaleString()}</Text>
+        <Text style={styles.carName}>{car?.car_name}</Text>
+        <Text style={styles.carPrice}>₹{car?.price.toLocaleString()}</Text>
 
         <View style={styles.detailRow}>
           <Ionicons name="calendar-outline" size={20} color="gray" />
-          <Text style={styles.detailText}>Year: {car.year}</Text>
+          <Text style={styles.detailText}>
+            Year: {car.year ? car.year : "Unavailable"}
+          </Text>
         </View>
 
         <View style={styles.detailRow}>
           <FontAwesome5 name="road" size={20} color="gray" />
-          <Text style={styles.detailText}>Kilometers: {car.kilometer} km</Text>
+          <Text style={styles.detailText}>
+            Kilometers: {car.kilometer ? car.kilometer : "_"} km
+          </Text>
         </View>
 
         <View style={styles.detailRow}>
           <MaterialIcons name="local-gas-station" size={20} color="gray" />
-          <Text style={styles.detailText}>Fuel Type: {car.fuelType}</Text>
+          <Text style={styles.detailText}>
+            Fuel Type: {car.fuelType ? car.fuelType : "_"}
+          </Text>
         </View>
 
         <View style={styles.detailRow}>
           <MaterialIcons name="location-on" size={20} color="gray" />
-          <Text style={styles.detailText}>Location: {car.location}</Text>
+          <Text style={styles.detailText}>
+            Location: {car.location ? car.location : "_"}
+          </Text>
         </View>
 
         <Text style={styles.about}>{car?.about}</Text>

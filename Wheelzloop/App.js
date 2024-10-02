@@ -8,6 +8,7 @@ import DetailsScreen from "./src/Screens/DetailsScreen/DetailsScreen";
 import SearchScreen from "./src/Screens/SearchScreen/SearchScreen";
 import NotificationScreen from "./src/Screens/NotificationScreen/NotificationScreen";
 import FavouritesScreen from "./src/Screens/FavouritesScreen/FavouritesScreen";
+import { StatusBar } from "react-native";
 
 const Stack = createStackNavigator();
 const Tab = createMaterialBottomTabNavigator();
@@ -46,7 +47,7 @@ function MyTabs() {
             <Entypo
               name="home"
               size={focused ? 26 : 20}
-              color={focused ? "orangered" : color}
+              color={focused ? "#f78535" : color}
             />
           ),
         }}
@@ -60,7 +61,7 @@ function MyTabs() {
             <FontAwesome
               name="search"
               size={focused ? 26 : 20}
-              color={focused ? "orangered" : color}
+              color={focused ? "#f78535" : color}
             />
           ),
         }}
@@ -74,7 +75,7 @@ function MyTabs() {
             <Ionicons
               name="notifications"
               size={focused ? 26 : 20}
-              color={focused ? "orangered" : color}
+              color={focused ? "#f78535" : color}
             />
           ),
         }}
@@ -88,7 +89,7 @@ function MyTabs() {
             <AntDesign
               name="hearto"
               size={focused ? 26 : 20}
-              color={focused ? "orangered" : color}
+              color={focused ? "#f78535" : color}
             />
           ),
         }}
@@ -100,6 +101,12 @@ function MyTabs() {
 export default function App() {
   return (
     <NavigationContainer>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="#fff"
+        translucent={true}
+      />
       <MyTabs />
     </NavigationContainer>
   );
